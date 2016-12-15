@@ -10,6 +10,10 @@ sections:
     prefix:   /building
     type:     markdown
     files:   'doc/building/**/*.md'
+  - title:    Testing
+    prefix:   /testing
+    type:     markdown
+    files:   'doc/testing/**/*.md'
   - title:    Features
     prefix:   /features
     type:     markdown
@@ -29,7 +33,10 @@ sections:
       EXTRACT_ALL = YES
       INLINE_SOURCES = NO
       ALIASES = dse{1}="<b>Requires DSE:</b> \1"
-
+checks:
+  external_links:
+    exclude:
+    - 'https://ci.appveyor.com/api/projects/status/582057mqa3t6eimk/branch/master'
 versions:
   - name: 1.0
     ref: HEAD
