@@ -1359,6 +1359,20 @@ dse_graph_result_get_string(const DseGraphResult* result,
                             size_t* length);
 
 /**
+ * Get the raw JSON string from the result.
+ *
+ * @public @memberof DseGraphResult
+ * 
+ * @param[in] result
+ * @param[out] length
+ * @return The raw JSON string.
+ *
+ */
+DSE_EXPORT const char*
+dse_graph_result_get_raw(const DseGraphResult* result,
+                         size_t* length);
+
+/**
  * Return an object as an graph edge.
  *
  * @public @memberof DseGraphResult

@@ -680,6 +680,21 @@ const char* dse_graph_result_get_string(const DseGraphResult* result,
   return result->GetString();
 }
 
+const char* dse_graph_result_get_raw(const DseGraphResult* result,
+                                     size_t* length) {
+  rapidjson::StringBuffer buffer;
+  buffer.Clear();
+
+  rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+  result->Accept(writer);
+
+  if (length != NULL) {
+    *length = buffer.GetSize();
+  }
+
+  return buffer.GetString();
+}
+
 #define CHECK_FIND_MEMBER(dest, name, expected_index) do { \
   const DseGraphResult* src = find_member(result, name, expected_index); \
   if (src != NULL) { \
